@@ -325,6 +325,30 @@ p{
 	visibility: hidden;
 }
 
+/*个人介绍标题旋转*/
+@-webkit-keyframes rotateY{
+    0%{ 
+    	-webkit-transform: rotateY(0deg);
+    }
+    25%{
+    	-webkit-transform: rotateY(90deg);
+    }
+    50%{
+        -webkit-transform: rotateY(180deg);
+    }
+    75%{
+    	-webkit-transform: rotateY(270deg);
+    }
+    100%{
+        -webkit-transform: rotateY(360deg);
+    }
+}
+
+.content1-3 h2, .content1-4 h2, .content2-3 h2, .content2-4 h2{
+	-webkit-animation:rotateY 5s infinite linear;
+	transform-origin: 40%;
+}
+
 .content1-3{
 	width: 639px;
 	height: 359px;
@@ -440,7 +464,7 @@ p{
 	width: 639px;
 	height: 359px;
 	position: absolute;
-	color: #0000FF;
+	color: #555;
 	font-size: 20px;
 	display: none;
 	padding-left: 30px;
@@ -454,7 +478,7 @@ p{
 	height: 359px;
 	position: absolute;
 	color: #555;
-	font-size: 18px;
+	font-size: 20px;
 	display: none;
 	top: 360px;
 	left: 640px;
