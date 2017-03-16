@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评论弹幕效果</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<style>
+		.content{
+			margin-left: 80px;
+			float: left;
+		}
+		.type{
+			width: 450px;
+			height: 15px;
+			margin-top: 20px;
+			margin-left: 10%;
+		}
+		.video{
+			width: 480px;
+			height: 340px;
+			position: absolute;
+			left: 10%;
+			z-index: 100;
+			/*border: 1px solid blue;*/
+			overflow: hidden;
+		}
+		#textMove{
+			position: absolute;
+			z-index: 10;
+			color: red;
+		}
+		.box{
+			width: 1000px;
+			height: 720px;
+			border: 1px solid red;
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			/*z-index: 100;
+			overflow: hidden;*/
+		}
+		.box embed{
+			margin-left: 10%;
+			float: left;
+			margin-bottom: 3%;
+		}
+
+	</style>
+	<script type="text/javascript">
+		function send(){
+			var barrage = document.getElementById("barrage");//弹幕元素
+			var video = document.getElementById("video");//弹幕出现的区域
+			var textValue = "<font id='textMove'>" + barrage.value + "</font>";//弹幕元素里面的东西，就是真正的弹幕
+			video.innerHTML = textValue;
+			var textStyle = document.getElementById("textMove");
+			var textLeft = video.offsetWidth + "px";//这个是弹幕可以出现的位置长度
+			textStyle.style.left = textLeft;//先设定弹幕离视频窗口的距离
+			var textHeight = Math.random()*330 + "px"
+			textStyle.style.top = textHeight;
+
+			function move(){
+				if(parseInt(textStyle.style.left) > -300){
+					textStyle.style.left = parseInt(textStyle.style.left) - 20 + "px";
+					textStyle.style.top = textHeight;
+					send.setArrtribute
+				}
+				setTimeout(move, 100);
+			}
+			move();
+			
+		}
+
+	</script>
+</head>
+<body>
+	<div class="box">
+		<embed src='http://player.youku.com/player.php/sid/XMjMyODQwNjA4/v.swf' allowFullScreen='true' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+		<div class="video" id="video">
+			
+		</div>
+		
+		<div class="type">
+			<div class="content">
+				<input type="text" name="" id="barrage" cols="30" rows="10"></input>
+			</div>
+			<input type="button" id="send" style="color: red; width: 80px;" value="发送弹幕" onclick="send()">
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图jQuery版本</title>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<style type="text/css">
+		.header{
+			text-align: center;
+		}
+		.box{ 
+			position: relative; 
+			width: 450px; 
+			height: 300px;
+			border: 3px solid red;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+		#list{ 
+			position: absolute; 
+			width: 1800px; 
+			height: 300px; 
+			border: 1px solid blue;
+		}
+		#list img{
+			float: left;
+		}
+		.arrow{ 
+			cursor: pointer; 
+			display: none; 
+			line-height: 39px; 
+			text-align: center; 
+			font-size: 36px; 
+			font-weight: bold; 
+			width: 40px; 
+			height: 40px;  
+			position: absolute; 
+			z-index: 2; 
+			top: 130px; 
+			background-color: RGBA(0,0,0,0.3); 
+			color: #fff;
+			text-decoration: none;
+		}
+		.arrow:hover{ 
+			background-color: RGBA(0,0,0,0.7);
+		}
+        #box:hover .arrow{ 
+        	display: block;
+        }
+		#left{
+			left: 20px;
+		}
+		#right{
+			right: 20px;
+		}
+	</style>
+
+</head>
+<body>
+	<!-- 焦点图部分 -->
+    <div id="container">
+    	<div class="header">
+    		<h1>轮播图</h1>
+    	</div>
+        <div class="box" id="box">
+            <div id="list">
+                <img src="./pic/9.jpg" alt="">
+                <img src="./pic/10.jpg" alt="">
+                <img src="./pic/11.jpg" alt="">
+                <img src="./pic/12.jpg" alt="">
+            </div><!-- list end -->
+            <a href="javascript:0" class="arrow" id="left">&lt;</a>
+        	<a href="javascript:0" class="arrow" id="right">&gt;</a>
+        </div>
+        
+     </div><!-- container end -->
+    <!-- 焦点图部分 end -->
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		var $box = $("#box");
+    		var leftDis = $box.width();
+    		var $list = $("#list");
+    		var moveDis = leftDis;
+    		var $left = $("#left");
+    		var $right = $("#right");
+
+    		$right.click(function(){
+    			
+    		})
+    	})
+    </script>
+</body>
+</html>

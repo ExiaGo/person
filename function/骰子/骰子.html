@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>骰子</title>
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+		.header{
+			text-align: center;
+		}
+		.warp{
+			width: 200px;
+			height: 150px;
+			/*position: relative;*/
+			margin: 0 auto;
+		}
+		.warp img{
+			position: absolute;
+			width: 200px;
+		}
+		.myButton{
+			width: 170px;
+			margin: 20px auto;
+		}
+		.myButton button{
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>骰子游戏</h1>
+	</div>
+	<div class="warp">
+		<img src="1.png" alt="">
+		<img src="2.png" alt="">
+		<img src="3.png" alt="">
+		<img src="4.png" alt="">
+		<img src="5.png" alt="">
+		<img src="6.png" alt="">
+	</div>
+
+	<div class="myButton">
+		<button type="button" id="button1" class="btn btn-primary btn-lg" onclick="startTimer()">投骰子</button>
+		<button type="button" id="button2" class="btn btn-primary btn-lg" onclick="stop()">停止</button>
+	</div>
+</body>
+<script type="text/javascript">
+	var button1 = document.getElementById("button1");
+	var button2 = document.getElementById("button2");
+	var imgs = document.getElementsByTagName("img");
+	var index = -1000;
+	var pics = [];
+	var count = 0;
+	//先将图片的z-index赋值
+	for (var i = 0; i < imgs.length; i++) {
+		pics[i] = imgs[i];
+		var currenPic = pics[i];
+		currenPic.style.zIndex = -i;
+	}
+	//在这个数组的开头和结尾重复删除和压进图片
+	//同时重置其z-index
+	var start = function(){
+		var showFirst = pics.shift();
+		showFirst.style.zIndex = -index + count;
+		pics.push(showFirst);
+		count++;
+	}
+
+	var startTimer = function(){
+		timer = setInterval(start,100);
+		button1.disabled = true;
+	}
+
+	var stop = function(){
+		clearInterval(timer);
+		button1.disabled = false;
+	}
+
+
+</script>
+</html>

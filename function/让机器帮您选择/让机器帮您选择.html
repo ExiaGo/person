@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>让机器帮您选择</title>
+	<!-- <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script> -->
+	<script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+	<style type="text/css">
+		.header{
+			text-align: center;
+		}
+		.box{
+			width: 600px;
+			height: 600px;
+			border: 1px solid blue;
+			margin: 0 auto;
+		}
+		.smallBox{
+			width: 33%;
+			height: 33%;
+			border: 1px solid #0080FF;
+			float: left;
+			text-align: center;
+		}
+		.smallBox-button{
+			width: 33%;
+			height: 33%;
+			border: 1px solid #0080FF;
+			float: left;
+			text-align: center;
+		}
+		.content{
+			margin: 10% auto;
+			width: 80%;
+			height: 80%;
+			line-height: 150px;
+		}
+		.gold{
+			background-color: gold;
+		}
+		.purple{
+			background-color: purple;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>让机器帮您选择</h1>
+	</div>
+	<div class="box">
+		<div class="smallBox index0">
+			<div class="content" style="background-color: red;">
+				<h1 style="color: white;">KFC</h1>
+			</div>
+		</div>
+		<div class="smallBox index1">
+			<div class="content" style="background-color: #D8E9F8;">
+				<h1 style="color: #008040;">兰州拉面</h1>
+			</div>
+		</div>
+		<div class="smallBox index2">
+			<div class="content" style="background-color: #804000;">
+				<h1 style="color: white;">牛排</h1>
+			</div>
+		</div>
+		<div class="smallBox index7">
+			<div class="content" style="background-color: black;">
+				<h1 style="color: white;">寿司</h1>
+			</div>
+		</div>
+		<div class="smallBox-button">
+			<p>每次到吃饭时间都不知道吃什么好，现在就把肚子交给机器选择吧！</p>
+			<p>注意是随机停止的，请耐心等待。</p>
+			<input type="button" id="chioce1" value="开始选择">
+			<input type="button" id="chioce2" value="机器决定">
+		</div>
+		<div class="smallBox index3">
+			<div class="content" style="background-color: #56B2A6;">
+				<h1 style="color: #923272;">20块外卖</h1>
+			</div>
+		</div>
+		<div class="smallBox index6">
+			<div class="content" style="background-color: #53B77B;">
+				<h1 style="color: #CFE46E;">三明治</h1>
+			</div>
+		</div>
+		<div class="smallBox index5">
+			<div class="content" style="background-color: #F64250;">
+				<h1 style="color: #F8E769;">烧烤</h1>
+			</div>
+		</div>
+		<div class="smallBox index4">
+			<div class="content" style="background-color: #FFCC66;">
+				<h1 style="color: #999999;">任性不吃</h1>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var start = $("#chioce1");
+		var stop = $("#chioce2");
+		var timer;
+		var cur_i = 0;
+		var pre_i = -1;
+		var backgroundStyle = "gold";
+		start.click(function() {
+			backgroundStyle = "gold";
+			$(".box").find(".purple").removeClass("purple");
+			$(".smallBox").removeAttr("purple");
+			timer = setInterval(function(){
+				if(cur_i > 7){
+					cur_i = 0;
+				}
+				$(".index" + cur_i).addClass(backgroundStyle);
+				// smallBox.eq(cur_i).addClass("gray");
+				$(".index" + pre_i).removeClass(backgroundStyle);
+				// smallBox.eq(pre_i).removeClass("gray")
+				pre_i = cur_i;
+				cur_i++;
+
+				// setTimeout(function(){
+				// 	smallBox.eq(i+1).addClass("gray");
+				// },0)
+				// setTimeout(function(){
+				// 	smallBox.eq(i-1).removeClass("gray")
+				// },0);
+			}, 100)
+			start.attr("disabled", true);
+		});
+
+		function randomNum(lowerValue, upperValue){
+			var choices = upperValue - lowerValue + 1;
+			var num = Math.floor(Math.random() * choices + lowerValue );
+			return num;
+		}
+
+		stop.click(function() {
+			backgroundStyle = "purple";
+			$(".box").find(".gold").removeClass("gold");
+			var delay = randomNum(1, 3)*1000;
+			console.log(delay)
+			setTimeout(function(){
+				clearInterval(timer);
+				start.attr("disabled", false);
+				stop.attr("disabled", false);
+			}, delay);
+			
+			stop.attr("disabled", true);
+		});
+		
+		
+
+
+	</script>
+</body>
+</html>

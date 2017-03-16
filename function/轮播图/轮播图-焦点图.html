@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图-焦点图</title>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			autoRun();
+			timer = window.setInterval(function(){
+				right.onclick();
+			},3000);
+		}
+		function autoRun(){
+			var list = document.getElementById("list");
+			var left = document.getElementById("left");
+			var right = document.getElementById("right");
+			
+			var time = 300;
+			var interval = 10;
+			var speed = 400/(time/interval);
+
+			right.onclick = function(){
+				list.style.left = parseInt(list.style.left) - 400 + "px";
+				if(list.style.left == -3200 + "px"){
+					list.style.left = 0 + "px";
+				}
+			}
+			left.onclick = function(){
+				list.style.left = parseInt(list.style.left) + 400 + "px";
+				if(list.style.left == 400 + "px"){
+					list.style.left = -2800 + "px";
+				}
+			}
+		}
+		// var list = document.getElementById("list");
+		// function stop(){
+		// 		clearInterval(timer);
+		// 	}
+		// 	list.onmouseover = stop;
+		// 	pic.onmuseout = autoRun;
+	</script>
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.pic{
+			width: 400px;
+			height: 500px;
+			margin: 0 auto;
+			border: 1px solid red;
+			overflow: hidden;
+			position: relative;
+		}
+		#list{
+			width: 3200px;
+			position: absolute;
+			/*transition: 2s;*/
+		}
+		.pic img{
+			width: 400px;
+			border: 0;
+			float: left;
+		}
+		.arrow{
+			cursor: pointer;
+			font-size: 60px;
+			text-decoration: none;
+		}
+		#left{
+			float: left;
+		}
+		#right{
+			float: right;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="pic" id="pic">
+		<div id="list" style="left: 0px">
+			<img id="pic1" src="./pic/1.jpg" alt="">
+			<img id="pic2" src="./pic/2.jpg" alt="">
+			<img id="pic3" src="./pic/3.jpg" alt="">
+			<img id="pic4" src="./pic/4.jpg" alt="">
+			<img id="pic5" src="./pic/5.jpg" alt="">
+			<img id="pic6" src="./pic/6.jpg" alt="">
+			<img id="pic7" src="./pic/7.jpg" alt="">
+			<img id="pic8" src="./pic/8.jpg" alt="">
+		</div>
+	</div>
+	<a href="javascript:0" class="arrow" id="left">&lt;</a>
+	<a href="javascript:0" class="arrow" id="right">&gt;</a>
+
+</body>
+</html>

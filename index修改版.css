@@ -1,0 +1,910 @@
+.box{
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.header-1{
+	width: 100%;
+	height: 24px;
+	border: 1px solid gray;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	background: rgba(0, 0, 0, 0.15);
+}
+
+.QRcode{
+	width: 150px;
+	height: 170px;
+	z-index: 200;
+	margin-left: 100px;
+	position: absolute;
+	background-color: white;
+	display: none;
+}
+
+.QRcode img{
+	width: 130px;
+	z-index: 200;
+	margin: 10px 10px;
+}
+
+.QRcode p{
+	text-align: center;
+}
+
+.header-2_3{
+	width: 1280px;
+	height: 65px;
+	border-top: none;
+	/*background-color: rgba(79,79,79,0);*/
+	position: absolute;
+	z-index: 100;
+}
+
+.header-2{
+	width: 28%;
+	height: 65px;
+	/*border: 1px solid black;*/
+	border-top: none;
+	/*background-color: rgba(79,79,79,0.5);*/
+	float: left;
+	z-index: 100;
+	color: #777;
+	font-size: 42px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.header-2 span:hover{
+	/*color: blue;*/
+	cursor: pointer;
+	transition: all 1.5s ease-out 0s;
+	-webkit-animation: changeColor 1.5s infinite linear;
+}
+
+@-webkit-keyframes changeColor{
+    0%{ 
+    	color: red;
+    }
+    25%{
+    	color: yellow;
+    }
+    50%{
+        color: blue;
+    }
+    75%{
+    	color: purple;
+    }
+    100%{
+        color: green;
+    }
+}
+
+.header-3{
+	width: 36%;
+	height: 65px;
+	/*border: 1px solid black;*/
+	border-top: none;
+	border-left: none;
+	/*background-color: rgba(79,79,79,0.5);*/
+	z-index: 100;
+	float: right;
+	font-size: 16px;
+}
+
+.header-3 a, .header-4 a{
+	color: #777;
+	text-decoration: none;
+	margin-top: 20px;
+	padding: 5px 15px 10px 15px;
+	display: block;
+}
+
+.header-3 li:hover, .header-4 li:hover{
+	background-color: rgba(79,79,79,0.3);
+	border-radius: 3em;
+	cursor: pointer;
+	transition: all 0.5s ease-out 0s
+}
+
+.header-3 a:hover, .header-4 a:hover{
+	color: purple;
+	transition: all 0.5s ease-out 0s
+}
+
+.header-3 li{
+	display: block;
+	list-style: none;
+	float: left;
+	position: relative;
+}
+
+.header-4{
+	width: 36%;
+	height: 65px;
+	/*border: 1px solid black;*/
+	border-top: none;
+	border-right: none;
+	/*background-color: rgba(79,79,79,0.5);*/
+	z-index: 100;
+	float: left;
+	font-size: 16px;
+}
+
+.header-4 li{
+	display: block;
+	list-style: none;
+	float: right;
+	position: relative;
+}
+
+.container{
+	width: 1280px;
+}
+
+.message{
+	width: 100%;
+}
+
+.myNav{
+	width: 100%;
+	position: relative;
+	z-index: 100;
+	background-color: rgba(233,240,216,0);
+	border: 1px solid black;
+}
+
+.head{
+	width: 100%;
+	/*height: 440px;*/
+	height: 720px;
+	position: relative;
+	overflow: hidden;
+}
+
+#list{
+	width: 6400px;
+	position: absolute;
+}
+
+.head img{
+	width: 1280px;
+	float: left;
+}
+
+.arrow_left{
+/*	background-image: url(./pic/左.jpg);*/
+	background-color: #E6E6E6;
+	float: left;
+	opacity: 0.1;
+}
+
+/*#head:hover .arrow_left, .arrow_right{
+	display: block;
+} */
+
+.arrow{
+	position: absolute;
+	top: 13%;
+	width: 1280px;
+}
+
+.arrow a{
+	font-size: 45px;
+	text-align: center;
+	line-height: 600px;
+	text-decoration: none;
+}
+
+.arrow_right{
+/*	background-image: url(./pic/左.jpg);*/
+	background-color: #E6E6E6;
+	float: right;
+	opacity: 0.1;
+}
+
+.arrow_left, .arrow_right{
+	width: 70px;
+    height: 600px;
+    /*position: relative;*/
+    /*top: 25%;*/
+    display: none;
+    cursor: pointer;
+    border: 4px solid #fff;
+    opacity: 0.8;
+}
+
+/*.zuopin p{
+	font-size: 42px;
+	text-align: center; 
+	font-family: "微软雅黑";
+}
+
+.xinxi p{
+	font-family: "微软雅黑";
+	text-align: center;
+	font-size: 18px;
+}
+
+.bgc-b{
+	background-image: url(./pic/个人作品.jpg);
+}
+
+.bgc-y{
+	background-image: url(./pic/信息.jpg);
+}*/
+
+@keyframes fade-in {  
+    0% {opacity: 0;}/*初始状态 透明度为0*/  
+    40% {opacity: 0;}/*过渡状态 透明度为0*/  
+    100% {opacity: 1;}/*结束状态 透明度为1*/  
+}  
+@-webkit-keyframes fade-in {/*针对webkit内核*/  
+    0% {opacity: 0;}  
+    40% {opacity: 0;}  
+    100% {opacity: 1;}  
+}  
+
+.word3{
+	display: block;
+	z-index: 10;
+	position: absolute;
+	top: 10%;
+	left: 4800px;
+	font-weight: bold;
+	color: blue;
+	animation: fade-in;/*动画名称*/  
+	animation-duration: 20s;/*动画持续时间*/  
+    -webkit-animation:fade-in 20s;/*针对webkit内核*/ 
+}
+
+.word2{
+	display: block;
+	z-index: 10;
+	position: absolute;
+	top: 17%;
+	left: 33%;
+	font-weight: bold;
+	animation: fade-in;/*动画名称*/  
+	animation-duration: 3s;/*动画持续时间*/  
+    -webkit-animation:fade-in 3s;/*针对webkit内核*/ 
+}
+
+.word1{
+	display: block;
+	z-index: 10;
+	position: absolute;
+	top: 10%;
+	left: 3000px;
+	font-weight: bold;
+	color: #F80018;
+	animation: fade-in;/*动画名称*/  
+	animation-duration: 10s;/*动画持续时间*/  
+    -webkit-animation:fade-in 10s;/*针对webkit内核*/ 
+}
+
+.contentHeader{
+	border-radius: 5em;
+	border: 5px solid #FF8000;
+	box-shadow: 10px 10px 5px #888888;
+	margin-bottom: 10px;
+}
+
+.contentHeader h3{
+	color: #FF7F00;
+	text-align: center;
+}
+
+.contentHeader p{
+	color: black;
+	text-align: center;
+}
+
+p{
+	line-height: 1.45;
+}
+
+.content1{
+	width: 1280px;
+	height: 720px;
+	/*background-image: url(./pic/Earth.jpg);*/
+	/*background: rgba(81, 188, 232, 0.5);*/
+	position: relative;
+}
+
+.content1-1{
+	width: 639px;
+	height: 359px;
+	/*position: relative;*/
+	/*top: 50px;
+	left: 100px;*/
+	padding-top: 100px;
+	padding-left: 150px;
+	font-size: 20px;
+	position: absolute;
+	visibility: hidden;
+}
+
+.content1-3{
+	width: 639px;
+	height: 359px;
+	/*position: relative;*/
+	/*top: 50px;
+	left: 100px;*/
+	border-left: 1px solid rgba(0, 0, 0, 0.09);
+	position: absolute;
+	left: 640px;
+	overflow: hidden;
+}
+
+/*.content1-3 figure{
+	width: 100%;
+}*/
+
+/*.content1-3 img{
+	transform: translate(130px, 0px);
+}
+
+.content1-3 figcaption{
+	transform: translate(255px, 150px);
+	transition: 0.35s;
+}
+
+.zoom:hover img{
+	transform: scale(1.8, 1.8) translate(80px, 0px);
+	transition: 0.5s;
+}
+
+.zoom:hover figcaption{
+	transform: scale(1.8, 1.8) translate(140px, 80px);
+	transition: 0.5s;
+}*/
+
+.style1{
+	color: #555;
+	animation: fade-in;/*动画名称*/  
+	animation-duration: 2.5s;/*动画持续时间*/  
+    -webkit-animation:fade-in 2.5s;/*针对webkit内核*/
+}
+
+.style2{
+	color: blue;
+	animation: fade-in;/*动画名称*/  
+	animation-duration: 1.5s;/*动画持续时间*/  
+    -webkit-animation:fade-in 1.5s;/*针对webkit内核*/
+}
+
+.content1-2{
+	/*width: 300px;
+	height: 250px;*/
+	width: 639px;
+	height: 359px;
+	left: 640px;
+	border-top: 1px solid rgba(0, 0, 0, 0.09);
+	border-left: 1px solid rgba(0, 0, 0, 0.09);
+	/*position: relative;*/
+	/*top: 100px;*/
+	/*padding-top: 100px;*/
+	color: black;
+	font-size: 20px;
+	position: absolute;
+	top: 360px;
+	overflow: hidden;
+}
+
+.original-position{
+	position: relative;
+	left: 650px;
+	top: 50px;
+	margin-left: 150px;
+}
+
+.content1-4{
+	width: 639px;
+	height: 359px;
+	border-top: 1px solid rgba(0, 0, 0, 0.09);
+	position: absolute;
+	top: 360px;
+	overflow: hidden;
+}
+
+.circle{
+	width: 300px;
+    height: 300px;
+    border-radius: 300px;
+    border: 50px solid #74c390;
+    margin-left: 160px;
+    margin-top: 25px;
+    transition: all 0.2s;
+}
+
+.circle h2{
+	margin-left: 40px;
+	margin-top: 80px;
+}
+
+.circle:hover{
+	transform: scale(2.7, 2.7) translate(0px, 0px);
+	transition: 0.2s;
+}
+
+.content2{
+	width: 1280px;
+	height: 720px;
+	/*background-image: url(./pic/mountain.jpg);*/
+	/*background: rgba(209, 233, 124, 0.5);*/
+	position: relative;
+}
+
+.content2-1{
+	width: 639px;
+	height: 359px;
+	position: absolute;
+	color: #0000FF;
+	font-size: 20px;
+	display: none;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-indent: 2em;
+	padding-top: 30px;
+}
+
+.content2-2{
+	width: 639px;
+	height: 359px;
+	position: absolute;
+	color: #555;
+	font-size: 18px;
+	display: none;
+	top: 360px;
+	left: 640px;
+	border-top: 1px solid rgba(0, 0, 0, 0.09);
+	border-left: 1px solid rgba(0, 0, 0, 0.09);
+	padding-left: 15px;
+	text-indent: 2em;
+	padding-top: 60px;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+.content2-3{
+	width: 639px;
+	height: 359px;
+	position: absolute;
+	left: 640px;
+	border-left: 1px solid rgba(0, 0, 0, 0.09);
+	overflow: hidden;
+}
+
+.content2-4{
+	width: 639px;
+	height: 359px;
+	position: absolute;
+	top: 360px;
+	border-top: 1px solid rgba(0, 0, 0, 0.09);
+	overflow: hidden;
+}
+
+.content2-2 a{
+	color: red;
+}
+
+.content3{
+	width: 1280px;
+	height: 720px;
+	/*background-image: url(./pic/BluePond.jpg);*/
+	/*background: rgba(166, 236, 218, 0.5);*/
+	background-color: #51bce8;
+	background: linear-gradient(45deg,#51bce8,#5164e8);
+	position: relative;
+	opacity: 0.8;
+	overflow: hidden;
+}
+
+.content3-1{
+	width: 639px;
+	height: 720px;
+	position: absolute;
+	color: white;
+	font-size: 20px;
+	display: none;
+	padding-top: 20px;
+	padding-left: 50px;
+}
+
+.content3-2{
+	width: 639px;
+	height: 720px;
+	position: absolute;
+	left: 640px;
+	color: white;
+	font-size: 18px;
+	/*border-top: 1px solid rgba(0, 0, 0, 0.09);*/
+	/*border-left: 1px solid rgba(0, 0, 0, 0.09);*/
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+@-webkit-keyframes rotate{
+    0%{ 
+    	-webkit-transform: rotate(0deg);
+    }
+    50%{
+        -webkit-transform: rotate(180deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.content3-3{
+	position: absolute;
+	z-index: -1;
+	width: 150px;
+	height: 150px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	left: 490px;
+	top: 200px;
+	-webkit-animation:rotate 10s infinite linear ;
+}
+
+.content3-4{
+	position: absolute;
+	z-index: -1;
+	width: 150px;
+	height: 150px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	left: 640px;
+	top: 200px;
+	-webkit-animation:rotate 10s infinite linear ;
+}
+
+.content3-5{
+	position: absolute;
+	z-index: -1;
+	width: 150px;
+	height: 150px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	left: 490px;
+	top: 350px;
+	-webkit-animation:rotate 10s infinite linear ;
+}
+
+.content3-6{
+	position: absolute;
+	z-index: -1;
+	width: 150px;
+	height: 150px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	left: 640px;
+	top: 350px;
+	-webkit-animation:rotate 10s infinite linear ;
+}
+
+/*.content3-3{
+	width: 639px;
+	height: 359px;
+	position: absolute;
+	left: 640px;
+	border-left: 1px solid rgba(0, 0, 0, 0.09);
+	overflow: hidden;
+}
+
+.content3-4{
+	width: 639px;
+	height: 359px;
+	position: absolute;
+	top: 360px;
+	border-top: 1px solid rgba(0, 0, 0, 0.09);
+	overflow: hidden;
+}
+*/
+.content4{
+	width: 1280px;
+	height: 720px;
+	/*background-image: url(./pic/FloatingIce.jpg);*/
+	background-color: white;
+	position: relative;
+}
+
+.content4-1{
+	width: 1280px;
+	height: 150px;
+	position: absolute;
+	padding-top: 20px;
+	color: pink;
+	font-size: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+	text-align: center;
+}
+
+.content4-2{
+	width: 1280px;
+	position: absolute;
+	top: 150px;
+}
+
+.content4-2-1{
+	width: 639px;
+	height: 400px;
+	position: absolute;
+	border-right: 1px solid rgba(0, 0, 0, 0.09);
+	text-align: center;
+}
+
+.content4-2-1 img{
+	width: 200px;
+}
+
+.content4-2-2{
+	width: 639px;
+	height: 400px;
+	position: absolute;
+	left: 640px;
+	overflow: hidden;
+}
+
+.content4-2-2 img{
+	width: 150px;
+	margin-left: 30px;
+	margin-top: 60px;
+}
+
+/*图片CSS3特效*/
+.functionArea{
+	width: 1280px;
+	height: 720px;
+}
+
+figure{
+	position: relative;
+	float: left;
+	width: 33.33%;
+	overflow: hidden;
+}
+
+figure img{
+	opacity: 0.8;
+	transition: all 0.35s;
+}
+
+figcaption{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	font-family: "微软雅黑";
+}
+
+figure figcaption p, figure figcaption div, figure figcaption h2{
+	transition: all 0.35s;
+}
+
+.one{
+	background-color: #2F0000;
+}
+
+.one figcaption{
+	padding: 20px;
+}
+
+.one figcaption h2, .two figcaption h2, .three figcaption h2,
+.five figcaption h2, .six figcaption h2{
+	color: white;
+}
+
+.four figcaption h2{
+	color: blue;
+}
+
+.one figcaption p{
+	background-color: #fff;
+	color: gray;
+	text-align: center;
+	transform: translate(-150px, 0px);
+}
+
+.one:hover figcaption p{
+	transform: translate(0px, 0px);
+}
+
+.one figcaption p:nth-of-type(1){transition-delay: 0.05s}
+.one figcaption p:nth-of-type(2){transition-delay: 0.15s}
+.one figcaption p:nth-of-type(3){transition-delay: 0.25s}
+
+.one:hover img{
+	transform: translate(5px, 0px);
+	opacity: 0.5;
+}
+
+.two{
+	background-color: #008040;
+}
+
+.two figcaption{
+	width: 99%;
+	height: 70%;
+}
+
+.two figcaption h2{
+	margin-top: 15%;
+	margin-left: 15%;
+}
+
+.two figcaption p{
+	color: #fff;
+	margin-left: 15%;
+	opacity: 0;
+}
+
+.two figcaption div{
+	border: 2px solid #FFF;
+	width: 80%;
+	height: 80%;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	transform: translate(0px, -400px) rotate(0deg);
+}
+
+.two:hover figcaption div{
+	transform: translate(0px, 0px) rotate(360deg);
+}
+
+.two:hover img{
+	opacity: 0.5;
+	transform: translate(5px, 0);
+}
+
+.two:hover figcaption p{
+	transform: translate(0px, 20px);
+	opacity: 1;
+}
+
+.three{
+	background-color: red;
+}
+
+.three figcaption{
+	top: 40px;
+	left: 100px;
+}
+
+.three figcaption h2{
+	-webkit-transform: skew(25deg);
+}
+
+.three figcaption p{
+	-webkit-transform: skew(25deg);
+	color: gray;
+	opacity: 0;
+	background-color: #fff;
+}
+
+.three:hover img{
+	opacity: 0.5;
+	transform: translate(5px, 0);
+}
+
+.three:hover figcaption h2{
+	-webkit-transform: skew(0deg);
+}
+
+.three:hover figcaption p{
+	-webkit-transform: skew(0deg);
+	transition-delay: 0.2s;
+	opacity: 1;
+}
+
+.four figcaption{
+	width: 20%
+}
+
+.four figcaption h2{
+	font-weight: bold;
+	color: black;
+	margin-left: 15%;
+}
+
+.four figcaption p{
+	background-color: black;
+	color: white;
+	text-align: center;
+	margin-left: 10%;
+	opacity: 0;
+}
+
+.four:hover img{
+	opacity: 0.5;
+	transform: translate(5px, 0);
+}
+
+.four:hover figcaption{
+	transform: scale(2, 2) translate(40px, 30px);
+	transition: 1.5s;
+}
+
+.four:hover figcaption p{
+	opacity: 1;
+}
+
+.five{
+	background-color: #FF8000;
+}
+
+.five figcaption{
+	margin-left: 15%;
+}
+
+.five figcaption p{
+	background-color: white;
+	color: gray;
+	text-align: center;
+	transform: translate(0px, 300px) rotate(0deg);
+}
+
+.five:hover figcaption p{
+	transform: translate(0px, 0px) rotate(360deg);
+}
+
+.five:hover img{
+	opacity: 0.5;
+	transform: translate(5px, 0);
+}
+
+.six{
+	background-color: green;
+}
+
+.six figcaption{
+	margin-left: 15%;
+}
+
+.six figcaption h2{
+	transform: rotate(0deg);
+}
+
+.six figcaption p{
+	background-color: #fff;
+	color: gray;
+	text-align: center;
+	opacity: 0;
+}
+
+.six:hover figcaption h2{
+	transform: scale(2, 2) rotate(360deg);
+}
+
+.six:hover figcaption p{
+	transform: scale(2, 2) rotate(360deg) translate(0px, 20px);
+	opacity: 1;
+}
+
+.six:hover img{
+	opacity: 0.5;
+	transform: translate(5px, 0);
+}
+
+.summary{
+	width: 1280px;
+	height: 720px;
+	overflow: hidden;
+	position: absolute;
+}
+
+video{
+	z-index: -1;
+	position: absolute;
+}
+
+.summary div{
+	width: 75%;
+	height: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 13%;
+	color: yellow;
+}
+
+
+
+

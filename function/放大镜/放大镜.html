@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>放大镜</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    #demo{
+        display: block;
+        width: 400px;
+        height: 225px;
+        margin: 50px;
+        position: relative;
+        border: 1px solid #ccc;
+        margin-left: 5%;
+    }
+
+    #small-box{
+        position: relative;
+        z-index: 1;
+    }
+
+    #float-box{
+        display: none;
+        width: 160px;
+        height: 120px;
+        position: absolute;
+        background: #ffffcc;
+        border: 1px solid #ccc;
+        filter: alpha(opacity=50);
+        opacity: 0.5;
+        cursor: move;
+    }
+
+    #mark{
+        position: absolute;
+        display: block;
+        width: 400px;
+        height: 255px;
+        z-index: 10;
+        background: #fff;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        cursor: move;
+    }
+
+    #big-box{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 460px;
+        width: 400px;
+        height: 300px;
+        overflow: hidden;
+        border: 1px solid #ccc;
+        z-index: 1;
+    }
+
+    #big-box img{
+        position: absolute;
+        z-index: 5;
+    }
+
+    .header{
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header-1{
+        width: 250px;
+        margin-left: 5%;
+    }
+
+    .box1{
+        width: 1000px;
+        height: 400px;
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+    
+    .box2{
+        width: 1000px;
+        height: 400px;
+        margin: 0 auto;
+        border: 1px solid blue;
+        margin-top: 10px;
+    }
+
+    #thumbnail{
+        width: 200px;
+    }
+
+    .thumbnail{
+        margin-left: 5%;
+        margin-top: 5%;
+        float: left;
+    }
+
+    #prototype{
+        width: 400px;
+        display: none;
+        margin-top: 5%;
+        padding-left: 15%;
+    }
+
+</style>
+<script>
+//悬浮式放大镜特效
+        //页面加载完毕后执行
+window.onload = function () {
+
+    var objDemo = document.getElementById("demo");
+    var objSmallBox = document.getElementById("small-box");
+    var objMark = document.getElementById("mark");
+    var objFloatBox = document.getElementById("float-box");
+    var objBigBox = document.getElementById("big-box");
+    var objBigBoxImage = objBigBox.getElementsByTagName("img")[0];
+
+    objSmallBox.onmouseover = function () {
+        objFloatBox.style.display = "block";
+        objBigBox.style.display = "block";
+    }
+
+    objSmallBox.onmouseout = function () {
+        objFloatBox.style.display = "none";
+        objBigBox.style.display = "none";
+    }
+
+objSmallBox.onmousemove = function (ev) {
+
+//鼠标移动时的响应方法
+    var _event = ev || window.event;
+    var floatLeft = _event.clientX - objDemo.offsetLeft - objSmallBox.offsetLeft - objFloatBox.offsetWidth/2;
+    var floatTop = _event.clientY - objDemo.offsetTop - objSmallBox.offsetTop - objFloatBox.offsetHeight/2;
+    
+    if(floatLeft < 0){
+        floatLeft = 0;
+    }else if(floatLeft > objSmallBox.offsetWidth - objFloatBox.offsetWidth){
+        floatLeft = objSmallBox.offsetWidth - objFloatBox.offsetWidth;
+    }
+    
+    if(floatTop < 0){
+        floatTop = 0;
+    }else if(floatTop > objSmallBox.offsetHeight - objFloatBox.offsetHeight){
+        floatTop = objSmallBox.offsetHeight - objFloatBox.offsetHeight - 4;
+        //减去4是由于图片和smallbox，floatbox上下border有多。
+    }
+    
+        objFloatBox.style.left = floatLeft + "px";
+        objFloatBox.style.top = floatTop + "px";
+    
+    var zoomX = floatLeft*(objBigBoxImage.offsetWidth - objBigBox.offsetWidth)/(objSmallBox.offsetWidth - objFloatBox.offsetWidth)
+    var zoomY = floatTop*(objBigBoxImage.offsetHeight - objBigBox.offsetHeight)/(objSmallBox.offsetHeight - objFloatBox.offsetHeight)
+    
+        objBigBoxImage.style.left = -zoomX + "px";
+        objBigBoxImage.style.top = -zoomY + "px";
+    }
+}
+        
+</script>
+
+<script type="text/javascript">
+    function zoom(){
+        var pic = document.getElementById("prototype");
+        pic.style.display = "block";
+    }
+    function narrow(){
+        var pic = document.getElementById("prototype");
+        pic.style.display = "none";
+    }
+</script>
+
+</head>
+<body>
+    <div class="header">
+        <h1>放大镜特效</h1>
+    </div>
+    <div class="box1">
+        <div class="header-1">
+            <h2>悬浮式放大镜特效</h2>
+        </div>
+        <div id="demo">
+            <div id="small-box">
+                <div id="mark"></div>
+                <div id="float-box"></div>
+                <img src="codol.jpg" alt="" style="width: 400px">
+            </div>
+            <div id="big-box">
+                <img src="codol.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="box2">
+        <div class="header-1">
+            <h2>鼠标触发式放大镜特效</h2>
+        </div>
+        <div class="thumbnail">
+            <img id="thumbnail" src="codol.jpg" alt="" onmouseover="zoom()" onmouseout="narrow()">
+        </div>
+        <div class="prototype">
+            <img id="prototype" src="codol.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

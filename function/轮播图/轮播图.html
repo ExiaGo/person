@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			clickRun()
+
+		}
+		function clickRun(){
+			var img = [];
+			img = document.getElementById("pic").getElementsByTagName("img");
+			for(var i = 0; i < img.length; i++){
+		//		img[i].style.zIndex = 1000;
+				img[i].onclick = function(){
+					this.style.zIndex--;
+				}
+			}
+		}
+	</script>
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.pic{
+			width: 400px;
+			margin: 0 auto;
+			border: 1px solid red;
+		}
+		.pic img{
+			width: 400px;
+			position: absolute;
+		}
+		li{
+			list-style-type: none;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="pic" id="pic">
+		<ul>
+			<li><img id="pic1" src="./pic/1.jpg" alt=""></li>
+			<li><img id="pic2" src="./pic/2.jpg" alt=""></li>
+			<li><img id="pic3" src="./pic/3.jpg" alt=""></li>
+			<li><img id="pic4" src="./pic/4.jpg" alt=""></li>
+			<li><img id="pic5" src="./pic/5.jpg" alt=""></li>
+			<li><img id="pic6" src="./pic/6.jpg" alt=""></li>
+			<li><img id="pic7" src="./pic/7.jpg" alt=""></li>
+			<li><img id="pic8" src="./pic/8.jpg" alt=""></li>
+		</ul>
+	</div>
+</body>
+</html>
