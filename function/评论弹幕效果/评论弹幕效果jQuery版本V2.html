@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>评论弹幕效果jQuery版本V2</title>
+    <!-- <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+	<style>
+		.header{
+			text-align: center;
+		}
+		.content{
+			text-align: center;
+		}
+		.type{
+			position: relative;
+			width: 100%;
+			height: 50px;
+			margin-top: 3%;
+			text-align: center;
+		}
+		.video{
+			width: 480px;
+			height: 340px;
+			/*position: absolute;*/
+			margin: 0 auto;
+			/*left: 25%;*/
+			z-index: 100;
+			/*border: 1px solid blue;*/
+			overflow: hidden;
+		}
+		.textStyle{
+			position: absolute;
+			z-index: 10;
+			color: red;
+		}
+		.box{
+			width: 1000px;
+			height: 720px;
+			border: 1px solid rgba(0, 0, 0, 0.09);
+			margin-left: auto;
+			margin-right: auto;
+			position: relative;
+			/*z-index: 100;
+			overflow: hidden;*/
+		}
+		/*.box embed{
+			margin-left: 25%;
+			float: left;
+			margin-bottom: 3%;
+		}*/
+		img{
+			width: 130%;
+			height: auto;
+			display: block;
+		}
+		.blue{
+			color: blue;
+		}
+		.yellow{
+			color: yellow;
+		}
+		.white{
+			color: white;
+		}
+		.bigSize{
+			font-size: 30px;
+		}
+		.introduce{
+			width: 60%;
+			margin: 0 auto;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('input[type="checkbox"]').on('change', function() {
+   				$(this).siblings('input[type="checkbox"]').prop('checked', false);
+			});
+		})
+
+		function send(){
+			var $barrage = $("#barrage").val();
+			var $video = $("#video");
+			var div = $("<div></div>");
+			// div.addClass("textStyle");
+			$("<font>" + $barrage + "</font>").appendTo(div);
+			div.appendTo($video);
+			var videoWidth = $video.width();
+			var barrageLeft = videoWidth;
+			// div.offset().left = barrageLeft;这个是不能赋值的
+			// 赋值可以像下面那样，也可以像第72行那样使用CSS样式
+			div.offset({left: barrageLeft});
+
+			// console.log(barrageLeft,"barrageLeft")
+			// console.log(div.offset().left, "div.offset().left")
+			if ($("#blue").is(":checked")) {
+				div.removeClass("textStyle");
+				div.addClass("blue");
+			}else if ($("#yellow").is(":checked")) {
+				div.removeClass("textStyle");
+				div.addClass("yellow");
+			}else if ($("#white").is(":checked")) {
+				div.removeClass("textStyle");
+				div.addClass("white");
+			}else if ($("#bigSize").is(":checked")) {
+				div.addClass("textStyle bigSize");
+			}
+			else {
+				div.addClass("textStyle");
+			}
+
+			var barrageHeight = Math.random()*380;
+			// div.offset().top = barrageHeight;这个是不能赋值的
+			div.offset({top: barrageHeight});
+			function move(){
+				if(barrageLeft > -300){
+					barrageLeft = barrageLeft - 20;
+					div.css("left", barrageLeft);
+					// div.offset().top = barrageHeight; 
+					
+					// console.log(div.offset().left, 11111);
+				}
+				setTimeout(move, 100);
+			}
+			move();
+		}
+
+	</script>
+</head>
+<body>
+	<div class="header">
+		<h1>评论弹幕效果</h1>
+	</div>
+	<div class="box">
+<!-- 		<embed src='http://player.youku.com/player.php/sid/XMjMyODQwNjA4/v.swf' allowFullScreen='true' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed> -->
+		<div class="video" id="video"><!-- 弹幕出现区域 -->
+			<img src="流水.gif" alt="">
+		</div>
+		
+		<div class="type">
+			<div class="content">
+				<input type="text" name="" id="barrage" cols="80" rows="10"></input>
+				<input type="button" id="send" style="color: red; width: 80px;" value="发送弹幕" onclick="send()">
+			</div>
+			<div>
+				<form action="">
+					<input type="checkbox" id="blue">蓝色
+					<input type="checkbox" id="yellow">黄色
+					<input type="checkbox" id="white">白色
+					<input type="checkbox" id="bigSize">30px
+				</form>
+			</div>	
+		</div>
+		<div class="introduce">
+			<p>内容介绍</p>
+			<span>请在输入框中输入您喜欢的文字，可以勾选下面的样式，也可以不勾选，直接发送就可以，本弹幕演示为了更加丰富，弹幕效果更好，可以多次点击发送无限量的弹幕，并不作时间限制，还有因为GitHub pages不能外链视频，所以使用一张动态图作为背景，请谅解，谢谢。</span>
+		</div>
+	</div>
+</body>
+</html>
