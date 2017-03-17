@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>二进制雨jQuery版本V2</title>
+	<!-- <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script> -->
+	<script type="text/javascript" src="../../jquery-3.1.1.min.js"></script>
+	<style>
+		.header{
+			text-align: center;
+		}
+		.box{
+			width: 1000px;
+			height: 650px;
+			border: 1px solid gray;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.rainArea{
+			width: 1000px;
+			height: 650px;
+			background-color: black;
+			margin: 0 auto;
+			overflow: hidden;
+			position: absolute;
+			z-index: 10;
+		}
+		.button{
+			position: absolute;
+			z-index: 100;
+		}
+		.rainStyle{
+			position: absolute;
+			/*z-index: 10;*/
+			color: green;
+			/*transform: rotate(90deg);*/
+			width: 10px;
+			display: block;
+			word-wrap: break-word;
+		}
+		.content{
+			margin: 0 auto;
+			width: 1000px;
+			height: 400px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$start = $(".button input:first");
+			$stop = $(".button input:last");
+		})
+		var i = 1;
+		function rain(){
+			var $rain = $(".rainArea");
+			var $div = $("<div></div>");
+			var rain = "1000100111";
+			var rainHeight = $div.offset().top - 100;
+			var rainWidth = Math.random()*1000 + 20;
+			$("<font>" + rain + "</font>").appendTo($div);
+			$div.addClass("rainStyle");
+			// $div.offset({top: -100});
+			$div.offset({left: rainWidth});
+			$div.appendTo($rain);
+			function raining(){
+				if(rainHeight < 700){
+					rainHeight = rainHeight + 10;
+					$div.css("top", rainHeight);
+					$div.text(toggleNum($div.text()));
+				}
+				setTimeout(raining, 100);
+			}
+			raining();
+		}
+
+		var $start;
+		var $stop;
+		var run;
+		function start(){
+			run = setInterval(rain, 50);
+			$start.attr("disabled", true);
+		}
+
+		function stop(){
+			clearInterval(run);
+			$start.attr("disabled", false);
+		}
+
+		function toggleNum(str) {
+			var newStr = "";
+			for (var i = 0; i < str.length; i++) {
+				newStr += +str[i] === 1 ? '0' : '1';
+			}
+			return newStr;
+		}
+	</script>
+</head>
+<body>
+	<div class="header">
+		<h1>二进制雨</h1>
+	</div>
+	<div class="box">
+		<div class="rainArea">
+			
+		</div>
+		<div class="button">
+			<input type="button" value="start" onclick="start()">
+			<input type="button" value="stop" onclick="stop()">
+		</div>
+	</div>
+	<div class="content">
+		<h2>内容介绍</h2>
+		<h3>二进制雨是用 js 来模仿电影黑客帝国中的电脑显示的情况，已经尽可能做到像电影中的样式了，请按黑色屏幕上左上角的 start 键观看二进制雨，stop 键可以使二进制雨停止。</h3>
+	</div>
+
+</body>
+</html>
