@@ -185,14 +185,14 @@
 
 .arrow{
 	position: absolute;
-	top: 13%;
+	top: 4%;
 	width: 1280px;
 }
 
 .arrow a{
 	font-size: 45px;
 	text-align: center;
-	line-height: 600px;
+	line-height: 718px;
 	text-decoration: none;
 }
 
@@ -205,12 +205,12 @@
 
 .arrow_left, .arrow_right{
 	width: 70px;
-    height: 600px;
+    height: 718px;
     /*position: relative;*/
     /*top: 25%;*/
     display: none;
     cursor: pointer;
-    border: 4px solid #fff;
+    /*border: 4px solid #fff;*/
     opacity: 0.8;
 }
 
@@ -284,10 +284,13 @@
 }
 
 .contentHeader{
-	border-radius: 5em;
+	/*border-radius: 5em;*/
 	border: 5px solid #FF8000;
-	box-shadow: 10px 10px 5px #888888;
-	margin-bottom: 10px;
+	/*box-shadow: 10px 10px 5px #888888;*/
+	margin-bottom: 5px;
+	margin-top: 5px;
+	border-left: none;
+	border-right: none;
 }
 
 .contentHeader h3{
@@ -704,11 +707,12 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 }
 
 .one{
-	background-color: #2F0000;
+	background-color: black;
 }
 
 .one figcaption{
-	padding: 20px;
+	padding-top: 20px;
+	padding-left: 40px;
 }
 
 .one figcaption h2, .two figcaption h2, .three figcaption h2,
@@ -722,9 +726,9 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 
 .one figcaption p{
 	background-color: #fff;
-	color: gray;
+	color: black;
 	text-align: center;
-	transform: translate(-150px, 0px);
+	transform: translate(-170px, 0px);
 }
 
 .one:hover figcaption p{
@@ -741,7 +745,7 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 }
 
 .two{
-	background-color: #008040;
+	background-color: black;
 }
 
 .two figcaption{
@@ -750,13 +754,13 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 }
 
 .two figcaption h2{
-	margin-top: 15%;
-	margin-left: 15%;
+	margin-top: 10%;
+	margin-left: 13%;
 }
 
 .two figcaption p{
 	color: #fff;
-	margin-left: 15%;
+	margin-left: 13%;
 	opacity: 0;
 }
 
@@ -785,21 +789,21 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 }
 
 .three{
-	background-color: red;
+	background-color: black;
 }
 
 .three figcaption{
-	top: 40px;
-	left: 100px;
+	top: 20px;
+	left: 50px;
 }
 
 .three figcaption h2{
-	-webkit-transform: skew(25deg);
+	-webkit-transform: skew(0deg);
 }
 
 .three figcaption p{
-	-webkit-transform: skew(25deg);
-	color: gray;
+	-webkit-transform: skew(0deg);
+	color: black;
 	opacity: 0;
 	background-color: #fff;
 }
@@ -810,28 +814,33 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 }
 
 .three:hover figcaption h2{
-	-webkit-transform: skew(0deg);
+	-webkit-transform: skew(25deg);
 }
 
 .three:hover figcaption p{
-	-webkit-transform: skew(0deg);
+	-webkit-transform: skew(25deg);
 	transition-delay: 0.2s;
 	opacity: 1;
 }
 
+.four{
+	background-color: black;
+}
+
 .four figcaption{
-	width: 20%
+	width: 40%
 }
 
 .four figcaption h2{
 	font-weight: bold;
-	color: black;
-	margin-left: 15%;
+	color: white;
+	margin-left: 20%;
+	margin-top: 25%;
 }
 
 .four figcaption p{
-	background-color: black;
-	color: white;
+	background-color: white;
+	color: black;
 	text-align: center;
 	margin-left: 10%;
 	opacity: 0;
@@ -852,16 +861,17 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 }
 
 .five{
-	background-color: #FF8000;
+	background-color: black;
 }
 
 .five figcaption{
-	margin-left: 15%;
+	margin-left: 13%;
+	margin-top: 5%
 }
 
 .five figcaption p{
 	background-color: white;
-	color: gray;
+	color: black;
 	text-align: center;
 	transform: translate(0px, 300px) rotate(0deg);
 }
@@ -876,11 +886,12 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 }
 
 .six{
-	background-color: green;
+	background-color: black;
 }
 
 .six figcaption{
-	margin-left: 15%;
+	margin-left: 13%;
+	margin-top: 5%;
 }
 
 .six figcaption h2{
@@ -889,7 +900,7 @@ figure figcaption p, figure figcaption div, figure figcaption h2{
 
 .six figcaption p{
 	background-color: #fff;
-	color: gray;
+	color: black;
 	text-align: center;
 	opacity: 0;
 }
