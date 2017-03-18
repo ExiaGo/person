@@ -6,7 +6,8 @@ $(document).ready(
 	arrowOn(),
 	oTimer = setInterval(startSlideToLeft, 4000),
 	showContent(),
-	QRcode()
+	QRcode(),
+	goTop()
 	// 测试锚点高度
 	// console.log($("#contentHeader1").offset().top, 111111),
 	// console.log($("#contentHeader2").offset().top, 222222),
@@ -264,6 +265,12 @@ function content3style(){
 	var $content3_1 = $(".content3-1");
 	var $content3_2 = $(".content3-2");
 	$content3_1.slideDown("slow");
+}
+
+function goTop(){
+	$(".goTop").click(function(){
+		$("html, body").animate({scrollTop: "0px"}, 800)
+	});
 }
 
 // function mouseOut(){

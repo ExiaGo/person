@@ -684,7 +684,7 @@ p{
 /*图片CSS3特效*/
 .functionArea{
 	width: 1280px;
-	height: 720px;
+	height: 600px;
 }
 
 figure{
@@ -943,6 +943,18 @@ video{
 	margin-top: 13%;
 	color: yellow;
 }
+
+.goTop{
+	width: 50px;
+	margin: 0 auto;
+	margin-bottom: 100px;
+	cursor: pointer;
+}
+
+.goTop img{
+	width: 50px;
+}
+
 
 
 
