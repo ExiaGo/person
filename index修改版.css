@@ -249,25 +249,28 @@
 	display: block;
 	z-index: 10;
 	position: absolute;
-	top: 10%;
-	left: 4800px;
+	top: 15%;
+	left: 4300px;
 	font-weight: bold;
-	color: blue;
+	color: #1CA35A;
 	animation: fade-in;/*动画名称*/  
-	animation-duration: 20s;/*动画持续时间*/  
-    -webkit-animation:fade-in 20s;/*针对webkit内核*/ 
+	animation-duration: 3s;/*动画持续时间*/  
+    -webkit-animation:fade-in 3s;/*针对webkit内核*/ 
+    text-align: center;
 }
 
 .word2{
 	display: block;
 	z-index: 10;
 	position: absolute;
-	top: 17%;
-	left: 33%;
+	top: 15%;
+	left: 28%;
+	color: #D171E5;
 	font-weight: bold;
 	animation: fade-in;/*动画名称*/  
-	animation-duration: 3s;/*动画持续时间*/  
-    -webkit-animation:fade-in 3s;/*针对webkit内核*/ 
+	animation-duration: 2s;/*动画持续时间*/  
+    -webkit-animation:fade-in 2s;/*针对webkit内核*/ 
+    text-align: center;
 }
 
 .word1{
@@ -277,10 +280,11 @@
 	top: 10%;
 	left: 3000px;
 	font-weight: bold;
-	color: #F80018;
+	color: #E26F3B;
 	animation: fade-in;/*动画名称*/  
-	animation-duration: 10s;/*动画持续时间*/  
-    -webkit-animation:fade-in 10s;/*针对webkit内核*/ 
+	animation-duration: 4s;/*动画持续时间*/  
+    -webkit-animation:fade-in 4s;/*针对webkit内核*/ 
+    text-align: center;
 }
 
 .contentHeader{
