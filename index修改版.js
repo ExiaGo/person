@@ -7,7 +7,8 @@ $(document).ready(
 	oTimer = setInterval(startSlideToLeft, 4000),
 	showContent(),
 	QRcode(),
-	goTop()
+	goTop(),
+	reset()
 	// 测试锚点高度
 	// console.log($("#contentHeader1").offset().top, 111111),
 	// console.log($("#contentHeader2").offset().top, 222222),
@@ -130,6 +131,10 @@ function arrowOn(){
 	}
 }
 
+var scrollLock1 = false;
+var scrollLock2 = false;
+var scrollLock3 = false;
+
 function showContent(){
 	window.onscroll = function(){
 		var scrollTop = window.pageYOffset
@@ -138,9 +143,9 @@ function showContent(){
 		// var person = document.getElementsByClassName("content1-1");
 		var person1_1 = $(".content1-1");
 		var person1_2 = $(".content1-2");
-		var person1_1Height = person1_1.offset().top;
+		var person1_1Height = person1_1.offset().top - 400;
 		
-		if(scrollTop > person1_1Height && scrollTop < 1500){
+		if(scrollTop > person1_1Height && scrollTop < 1500 && scrollLock1 == false){
 			// person[0].style.display = "block";
 			person1_1[0].style.visibility = "visible";
 			// lockLeft();
@@ -149,19 +154,36 @@ function showContent(){
 				lockLeft2();
 				a++;
 			}
-			console.log(a)
+			scrollLock1 = true;
 		}
-		else if(scrollTop > 1432 && scrollTop < 1700){
+		else if(scrollTop > 1432 && scrollTop < 1700 && scrollLock2 == false){
 			content2style();
+			scrollLock2 = true;
 		}
-		else if(scrollTop > 2238 && scrollTop < 2400){
+		else if(scrollTop > 2238 && scrollTop < 2400 && scrollLock3 == false){
 			content3style();
+			scrollLock3 = true;
+		}
+		else if (scrollTop < 20) {
+			reset();
 		}
 		else{
 			// person1_1[0].style.visibility = "hidden";
 			// lockRight();
 		}
 	}
+}
+
+function reset(){
+	a = 0;
+	scrollLock1 = false;
+	scrollLock2 = false;
+	scrollLock3 = false;
+	$(".content1-1").css("visibility", "hidden");
+	$(".content1-2").css("left", 640); 
+	$(".content2-1").fadeOut(500);
+	$(".content2-2").fadeOut(500);
+	$(".content3-1").slideUp("fast");
 }
 
 //这是一个锁住content1-2内容的运行锁，确保每次只能走一个方向
@@ -257,8 +279,8 @@ function contentMoveLeft2(){
 function content2style(){
 	var $content2_1 = $(".content2-1");
 	var $content2_2 = $(".content2-2");
-	$content2_1.fadeIn(5000);
-	$content2_2.fadeIn(5000);
+	$content2_1.fadeIn(1000);
+	$content2_2.fadeIn(1000);
 }
 
 function content3style(){
