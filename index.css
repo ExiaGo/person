@@ -943,11 +943,12 @@ video{
 }
 
 .goTop{
-	width: 50px;
+	width: 100px;
 	margin: 0 auto;
 	margin-bottom: 100px;
 	cursor: pointer;
 	margin-top: 50px;
+	text-align: center;
 }
 
 .goTop img{
