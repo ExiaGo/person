@@ -140,12 +140,14 @@ function showContent(){
 		var scrollTop = window.pageYOffset
 		  || document.documentElement.scrollTop
 		  || document.body.scrollTop;
+
 		// var person = document.getElementsByClassName("content1-1");
 		var person1_1 = $(".content1-1");
 		var person1_2 = $(".content1-2");
-		var person1_1Height = person1_1.offset().top - 400;
+		// var person1_1Height = person1_1.offset().top - 400;
+		console.log(scrollTop);
 		
-		if(scrollTop > person1_1Height && scrollTop < 1500 && scrollLock1 == false){
+		if(scrollTop > 600 && scrollTop < 1500 && scrollLock1 == false){
 			// person[0].style.display = "block";
 			person1_1[0].style.visibility = "visible";
 			// lockLeft();
@@ -156,11 +158,11 @@ function showContent(){
 			}
 			scrollLock1 = true;
 		}
-		else if(scrollTop > 1432 && scrollTop < 1700 && scrollLock2 == false){
+		else if(scrollTop > 1900 && scrollTop < 2500 && scrollLock2 == false){
 			content2style();
 			scrollLock2 = true;
 		}
-		else if(scrollTop > 2238 && scrollTop < 2400 && scrollLock3 == false){
+		else if(scrollTop > 2600 && scrollTop < 3200 && scrollLock3 == false){
 			content3style();
 			scrollLock3 = true;
 		}

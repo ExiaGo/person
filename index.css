@@ -682,7 +682,7 @@ p{
 /*图片CSS3特效*/
 .functionArea{
 	width: 1280px;
-	height: 600px;
+	height: 570px;
 }
 
 figure{
@@ -947,6 +947,7 @@ video{
 	margin: 0 auto;
 	margin-bottom: 100px;
 	cursor: pointer;
+	margin-top: 50px;
 }
 
 .goTop img{
