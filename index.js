@@ -158,11 +158,11 @@ function showContent(){
 			}
 			scrollLock1 = true;
 		}
-		else if(scrollTop > 1900 && scrollTop < 2500 && scrollLock2 == false){
+		else if(scrollTop > 2200 && scrollTop < 2500 && scrollLock2 == false){
 			content2style();
 			scrollLock2 = true;
 		}
-		else if(scrollTop > 2600 && scrollTop < 3200 && scrollLock3 == false){
+		else if(scrollTop > 2900 && scrollTop < 3200 && scrollLock3 == false){
 			content3style();
 			scrollLock3 = true;
 		}
