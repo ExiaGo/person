@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算器</title>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<style type="text/css">
+		.box{
+			width: 300px;
+			height: 500px;
+			border: 1px solid gray;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.keyboard{
+			width: 280px;
+			height: 380px;
+			border: 1px solid gray;
+			margin: 20px auto;
+		}
+		.keyboard table{
+			margin: 0 auto;
+			margin-top: 10px;
+		}
+		.keyboard td, button{
+			width: 60px;
+			height: 60px;
+		}
+		input{
+			font-size: 20px;
+			text-align: right;
+		}
+		button{
+			font-size: 20px;
+		}
+		h2{
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			function getVal(){
+				$button = $(".keyboard").find("button");
+				console.log($button.eq(0).val());
+				console.log($button.eq(2).val());
+			}
+
+			var val = "";
+			$("button").click(function(){
+				var curButton = $(this);
+				// console.log(curButton.val())
+				var content = $("input");
+				var eq = $("#eq");
+				var rel = 0;
+				eq = false;
+				val = val + curButton.val();
+				
+				content.val(val);
+				var str = "";
+				str = val.replace("=","");
+				
+				// console.log(str)
+				if(curButton.val() == "="){
+					eq = true;
+					try{
+						eval(str);
+					}
+					catch (err){
+						txt="计算器输入有错误。\n";
+						txt+="错误描述：" + err.message + "\n";
+						txt+="点击确定后请检查输入是否有误。\n";
+						alert(txt);
+					}
+					rel = eval(str);
+					content.val(rel);
+					val = rel;
+				}else if (curButton.val() == "C") {
+					content.val("");
+					val = "";
+				}			
+			})
+		})
+
+		
+		
+	</script>
+</head>
+<body>
+	<h2>简单计算器</h2>
+	<div class="box">
+		<input type="text" style="width: 280px; height: 40px; margin-top: 20px;" readonly="true">
+		<div class="keyboard">
+			<table>
+				<tr>
+					<td><button value="1">1</button></td>
+					<td><button value="2">2</button></td>
+					<td><button value="3">3</button></td>
+					<td><button value="4">4</button></td>
+				</tr>
+				<tr>
+					<td><button value="5">5</button></td>
+					<td><button value="6">6</button></td>
+					<td><button value="7">7</button></td>
+					<td><button value="8">8</button></td>
+				</tr>
+				<tr>
+					<td><button value="9">9</button></td>
+					<td><button value="0">0</button></td>
+					<td><button value="C">C</button></td>
+					<td><button id="eq" value="=">=</button></td>
+				</tr>
+				<tr>
+					<td><button value=".">.</button></td>
+					<td><button value="(">(</button></td>
+					<td><button value=")">)</button></td>
+					<td><button value="%">%</button></td>
+				</tr>
+				<tr>
+					<td><button value="+">+</button></td>
+					<td><button value="-">-</button></td>
+					<td><button value="*">*</button></td>
+					<td><button value="/">/</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
